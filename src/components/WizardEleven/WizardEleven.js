@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
 
 class WizardEleven extends Component {
 
@@ -126,4 +127,25 @@ class WizardEleven extends Component {
     }
 }
 
-export default WizardEleven;
+function mapStoreToProps(store){
+    return{
+        loanType: store.loanType,
+        propertyType: store.propertyType,
+        city: store.city,
+        propToBeUsedOn: store.propToBeUsedOn,
+        found: store.found,
+        realEstateAgent: store.realEstateAgent,
+        cost: store.cost,
+        downPayment: store.downPayment,
+        credit: store.credit,
+        history: store.history,
+        addressOne: store.addressOne,
+        addressTwo: store.addressTwo,
+        addressThree: store.addressThree,
+        firstName: store.firstName,
+        lastName: store.lastName,
+        email: store.email
+    }
+}
+
+export default connect(mapStoreToProps)(WizardEleven);
